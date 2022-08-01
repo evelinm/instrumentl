@@ -11,13 +11,11 @@ function App() {
    const [data,setData] = useState([])
    const [info,setInfo] = useState([])
 
-
    useEffect(()=> {
      const fetchInfo = async () => {
        const result = await axios.get(breedUrl);
        setInfo(result.data)
      }
-
      fetchInfo()
    },[])
 
@@ -27,17 +25,16 @@ function App() {
 
   return (
     <div>
-    <Helmet> 
-      <title> Cat Information </title>
-      <meta charset="UTF-8"></meta>
-      <meta name="cat app" content="This is a page about cats and shows a lot of information about cats" />
-    </Helmet>
-    <h1 className="text-3xl font-bold flex justify-center "> Cat Information </h1>
-      <p className="flex justify-center"> Learn about cats </p>
-      <DropDown breed={info} getData={getData}/>
-      <CatContainer breed={info} catId={data} />
+      <Helmet> 
+        <title> Cat Information </title>
+        <meta charset="UTF-8"></meta>
+        <meta name="cat app" content="This is a page about cats and shows a lot of information about cats" />
+      </Helmet>
+      <h1 className="text-3xl font-bold flex justify-center "> Cat Information </h1>
+        <p className="flex justify-center"> Learn about cats </p>
+        <DropDown breed={info} getData={getData}/>
+        <CatContainer breed={info} catId={data} />
     </div>
   );
 }
-
 export default App;

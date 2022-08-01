@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 const DropDown = ({ breed, getData }) => {
     const [catId,setCatID] = useState('')
@@ -11,14 +11,12 @@ const DropDown = ({ breed, getData }) => {
     return(
         <div className=" flex justify-center mt-10"> 
             <h2> Pick a breed : </h2>
-            <select onChange={handleInfo} value={catId}>
+            <select onChange={handleInfo}>
             {breed.map((b)=> (
-                <option key={b.id} value={b.id}> { b.name }</option>
+                <option value={b.id}> { b.name }</option>
             ))}
             </select>
         </div>
-      
     )
-
 }
 export default DropDown;
