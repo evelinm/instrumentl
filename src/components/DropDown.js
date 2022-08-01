@@ -4,16 +4,18 @@ const DropDown = ({ breed, getData }) => {
     const [catId,setCatID] = useState('')
 
     const handleInfo = (e) => {
+        
         setCatID(e.target.value)
-        getData(catId)
+        getData(e.target.value)
+        console.log("handle change drop", catId)
 
     }
     console.log(catId)
     return(
         <div>
-            <select onChange={handleInfo}>
+            <select onChange={handleInfo} value={catId}>
             {breed.map((b)=> (
-                <option  value={b.id}> { b.name }</option>
+                <option key={b.id} value={b.id}> { b.name }</option>
             ))}
             </select>
         </div>

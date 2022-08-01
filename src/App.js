@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react';
 import axios from "axios";
 import DropDown from './components/DropDown';
 import CatContainer from './components/CatContainer';
+import { unstable_batchedUpdates } from 'react-dom';
+
 
 const baseUrl = "https://api.thecatapi.com/v1/images/search";
 const breedUrl = "https://api.thecatapi.com/v1/breeds?api_key=a5efcafc-7a16-4bb8-bf77-fd8c69993137";
@@ -25,12 +27,19 @@ function App() {
    },[])
 
 
-  console.log(info)
 
-
+  // useEffect(() => {
+  //   const getData = (data) => {
+  //     setData(data)
+  //   }
+  //   getData()
+  // }, [data]);
 
   const getData = (data) => {
-    setData(data)
+    unstable_batchedUpdates(()=>{
+      setData(data)
+    })
+  
   }
 
   return (

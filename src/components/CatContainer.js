@@ -3,7 +3,7 @@
 
 const CatContainer = ({catId, breed}) => {
 
-    console.log("cat info",catId)
+    console.log("cat info container",catId)
     console.log("cat breed",breed)
 
    
