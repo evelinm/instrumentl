@@ -9,7 +9,7 @@ const DropDown = ({ breed, getData }) => {
     }
 
     return(
-        <div> 
+        <div className="flex justify-center"> 
             <h2> Pick a breed : </h2>
             <select onChange={handleInfo} value={catId}>
             {breed.map((b)=> (

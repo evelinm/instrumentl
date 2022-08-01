@@ -32,8 +32,8 @@ function App() {
       <meta charset="UTF-8"></meta>
       <meta name="cat app" content="This is a page about cats and shows a lot of information about cats" />
     </Helmet>
-    <h1 > Cat Information </h1>
-    <p className="text-3xl font-bold underline"> Learn about cats </p>
+    <h1 className="text-3xl font-bold "> Cat Information </h1>
+    <p> Learn about cats </p>
      <DropDown breed={info} getData={getData}/>
      <CatContainer breed={info} catId={data} />
     </div>
