@@ -2,10 +2,9 @@ import { useState,useEffect } from 'react';
 import axios from "axios";
 import DropDown from './components/DropDown';
 import CatContainer from './components/CatContainer';
-import { unstable_batchedUpdates } from 'react-dom';
+import {Helmet} from 'react-helmet'
 
 
-const baseUrl = "https://api.thecatapi.com/v1/images/search";
 const breedUrl = "https://api.thecatapi.com/v1/breeds?api_key=a5efcafc-7a16-4bb8-bf77-fd8c69993137";
 
 function App() {
@@ -20,30 +19,21 @@ function App() {
      }
 
      fetchInfo()
-  
-
-
-
    },[])
 
-
-
-  // useEffect(() => {
-  //   const getData = (data) => {
-  //     setData(data)
-  //   }
-  //   getData()
-  // }, [data]);
-
   const getData = (data) => {
-    unstable_batchedUpdates(()=>{
       setData(data)
-    })
-  
   }
 
   return (
     <div>
+    <Helmet> 
+      <title> Cat Information </title>
+      <meta charset="UTF-8"></meta>
+      <meta name="cat app" content="This is a page about cats and shows a lot of information about cats" />
+    </Helmet>
+    <h1 > Cat Information </h1>
+    <p className="text-3xl font-bold underline"> Learn about cats </p>
      <DropDown breed={info} getData={getData}/>
      <CatContainer breed={info} catId={data} />
     </div>

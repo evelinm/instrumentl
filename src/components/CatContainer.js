@@ -3,27 +3,22 @@
 
 const CatContainer = ({catId, breed}) => {
 
-    console.log("cat info container",catId)
-    console.log("cat breed",breed)
-
    
     return (
         <div>
-        {breed.map((x)=>(
-            catId === x.id ?
-         <div> 
-        <h2> {x.name} </h2> 
-        <img src={x.image.url}/>
-        <div> 
-            <p>{x.origin}</p>
-            <p>{x.description}</p>
-            <a href={x.wikipedia_url}>Learn more about {x.name} </a>
-        </div>
-         </div> :null
-        ))
-            
-        }
-          
+            {breed.map((x)=>(
+                catId === x.id ?
+                <div> 
+                <h3> {x.name} </h3> 
+                    <img src={x.image.url} alt={x.name}/>
+                    <div> 
+                        <p>{x.origin}</p>
+                        <p>{x.description}</p>
+                        <a href={x.wikipedia_url} rel="nofollow" >Learn more about {x.name} </a>
+                    </div>
+                </div> : null
+            ))  
+            }
         </div>
     )
 }
