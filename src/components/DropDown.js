@@ -1,18 +1,21 @@
+import {useState} from 'react';
 
+const DropDown = ({ breed, getData }) => {
+    const [catId,setCatID] = useState('')
 
-const DropDown = ({ breed }) => {
+    const handleInfo = (e) => {
+        setCatID(e.target.value)
+        getData(catId)
+
+    }
+    console.log(catId)
     return(
         <div>
-        <select>
-        {breed.map((b)=> (
-   
-                <option>{ b.name }</option>
-
-    
-
-        ))}
-        </select>
-          
+            <select onChange={handleInfo}>
+            {breed.map((b)=> (
+                <option  value={b.id}> { b.name }</option>
+            ))}
+            </select>
         </div>
       
     )

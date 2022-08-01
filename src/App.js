@@ -1,48 +1,42 @@
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import DropDown from './components/DropDown';
+import CatContainer from './components/CatContainer';
 
 const baseUrl = "https://api.thecatapi.com/v1/images/search";
-// const voteUrl = "https://api.thecatapi.com/v1/votes?api_key=a5efcafc-7a16-4bb8-bf77-fd8c69993137"
 const breedUrl = "https://api.thecatapi.com/v1/breeds?api_key=a5efcafc-7a16-4bb8-bf77-fd8c69993137";
 
 function App() {
    const [data,setData] = useState([])
-   const [breed,setBreed] = useState([])
+   const [info,setInfo] = useState([])
 
 
    useEffect(()=> {
-     const fetchBreed = async () => {
+     const fetchInfo = async () => {
        const result = await axios.get(breedUrl);
-       setBreed(result.data)
+       setInfo(result.data)
      }
 
-     const fetchData = async () => {
-       const result = await axios.get(baseUrl,
-        {
-          params: {
-            breed_id: breed
-
-          },
-        })
-       setData(result.data)
-     }
-
-     fetchBreed()
+     fetchInfo()
   
-     fetchData()
+
 
 
    },[])
 
 
-  console.log(data)
-  console.log("this is the breed",breed)
+  console.log(info)
 
+
+
+  const getData = (data) => {
+    setData(data)
+  }
 
   return (
     <div>
-     <DropDown breed={breed}/>
+     <DropDown breed={info} getData={getData}/>
+     <CatContainer breed={info} catId={data} />
     </div>
   );
 }
