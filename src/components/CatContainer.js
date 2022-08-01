@@ -1,11 +1,8 @@
+import "../css/app.css";
 
-
-
-const CatContainer = ({catId, breed}) => {
-
-   
+const CatContainer = ({catId, breed}) => { 
     return (
-        <div className="flex justify-center">
+        <div className=" flex justify-center mt-20 cat-container">
             {breed.map((x)=>(
                 catId === x.id ?
                 <div className="max-w-lg" > 
