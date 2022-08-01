@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="content-center">
     <Helmet> 
       <title> Cat Information </title>
       <meta charset="UTF-8"></meta>

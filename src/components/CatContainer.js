@@ -8,9 +8,9 @@ const CatContainer = ({catId, breed}) => {
         <div className="flex justify-center">
             {breed.map((x)=>(
                 catId === x.id ?
-                <div> 
+                <div className="max-w-lg" > 
                 <h3> {x.name} </h3> 
-                    <img className="max-w-lg"src={x.image.url} alt={x.name}/>
+                    <img src={x.image.url} alt={x.name}/>
                     <div> 
                         <p>{x.origin}</p>
                         <p>{x.description}</p>
